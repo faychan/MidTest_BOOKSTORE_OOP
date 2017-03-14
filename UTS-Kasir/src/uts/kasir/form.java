@@ -338,7 +338,7 @@ public class form extends javax.swing.JFrame {
             int status = connectDB.execute(SQL);
             if (status == 1){
                 JOptionPane.showMessageDialog(this, "Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-                lto1.setText(ado); 
+                lto1.setText(ado); selectData();
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to Add", "Error", JOptionPane.WARNING_MESSAGE);           
             }
@@ -416,12 +416,11 @@ public class form extends javax.swing.JFrame {
     }//GEN-LAST:event_tb1MouseClicked
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        String str = JOptionPane.showInputDialog(null, "INPUT PROMO CODE:", "Aachen Book Store",0);
-        int disc = 70/100;
-        if(str=="Aacher1292"){
-            int ah = Integer.parseInt(lto1.getText());
-            int an = ah*disc;
-            lto1.setText(Integer.toString(disc));
+        int disc = 70;
+        int ah = Integer.parseInt(lto1.getText());
+        if(ah>=100000){
+            int an = ah*disc/100;
+            lto1.setText(Integer.toString(an));
         }
     }//GEN-LAST:event_b6ActionPerformed
 
