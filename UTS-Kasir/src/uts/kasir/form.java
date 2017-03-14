@@ -330,11 +330,11 @@ public class form extends javax.swing.JFrame {
                 int ada = Integer.parseInt(tf3.getText());
                 int ad = Integer.parseInt(tf4.getText());
                 int tot = Integer.parseInt(lto1.getText());
-                int a = (ada*ad)+tot;
-                String ado = Integer.toString(a);
+                int a = (ada*ad);
+                String ado = Integer.toString(a+tot);
             String SQL = "INSERT INTO kasir (id, item_name, item_amount, item_price, total_price)" 
                     + "VALUES ('"+tf1.getText()+"','"+tf2.getText()+"', '"
-                    +tf3.getText()+"','" +tf4.getText()+"','" +ado+"')";
+                    +tf3.getText()+"','" +tf4.getText()+"','" +a+"')";
             int status = connectDB.execute(SQL);
             if (status == 1){
                 JOptionPane.showMessageDialog(this, "Added Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -353,13 +353,8 @@ public class form extends javax.swing.JFrame {
             String SQL = "DELETE FROM kasir WHERE id='"+id+"'";
             int status = connectDB.execute(SQL);
             if (status==1){
-                JOptionPane.showMessageDialog(this, "Data Erased Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);           
-                int ada = Integer.parseInt((String) tb1.getValueAt(row, 2));
-                int ad = Integer.parseInt((String) tb1.getValueAt(row, 3));
-                int tot = Integer.parseInt(lto1.getText());
-                int a = tot-(ada*ad);
-                String ado = Integer.toString(a);
-                lto1.setText(ado);
+                JOptionPane.showMessageDialog(this, "Data Erased Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                selectData();
             }else {
                 JOptionPane.showMessageDialog(this, "Data Failed to Erase", "Error", JOptionPane.WARNING_MESSAGE);
             }
@@ -373,28 +368,29 @@ public class form extends javax.swing.JFrame {
     }//GEN-LAST:event_breActionPerformed
 
     private void bedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bedActionPerformed
+        int row = tb1.getSelectedRow();
+        
+        int nah = Integer.parseInt(lto1.getText()); 
+        int nu = Integer.parseInt(tf3.getText()); 
+        int na = Integer.parseInt(tf4.getText()); 
+        int a = (nu*na);
+        String ado = Integer.toString(a+nah);
+        
         if("".equals(tf1.getText()) || "".equals(tf2.getText())
                 ||"".equals(tf3.getText()) || "".equals(tf4.getText())){
             JOptionPane.showMessageDialog(this, "Please, Fill Data", "Error", JOptionPane.WARNING_MESSAGE);           
-        } else {
-            int ada = Integer.parseInt(tf3.getText());
-            int tot = Integer.parseInt(lto1.getText());
-            int ad = Integer.parseInt(tf4.getText());
-            int a = (ada*ad)+tot;
-            String ado = Integer.toString(a);
-                
-            int row = tb1.getSelectedRow();
+        } else {  
             String id = tb1.getValueAt(row,0).toString();
             String SQL = "UPDATE kasir SET `id`='"+tf1.getText()
-                    + "',`ItemName`='"+tf2.getText()
-                    + "',`ItemAmount`='"+tf3.getText()
-                    + "',`ItemPrice`='"+tf4.getText()
-                    + "',`TotalPrice`='"+ado
+                    + "',`item_name`='"+tf2.getText()
+                    + "',`item_amount`='"+tf3.getText()
+                    + "',`item_price`='"+tf4.getText()
+                    + "',`total_price`='"+a
                     +"' WHERE id="+id;
             int status = connectDB.execute(SQL);
             if (status == 1){
                 JOptionPane.showMessageDialog(this, "Edited Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-                selectData();
+                selectData(); lto1.setText(ado);
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to Add", "Error", JOptionPane.WARNING_MESSAGE);           
             }
@@ -409,9 +405,12 @@ public class form extends javax.swing.JFrame {
             tf2.setText(tb1.getValueAt(row, 1).toString());            
             tf3.setText(tb1.getValueAt(row, 2).toString());
             tf4.setText(tb1.getValueAt(row, 3).toString());
+            
             int nah = Integer.parseInt(lto1.getText()); 
-            int no = Integer.parseInt(tb1.getValueAt(row, 5).toString());
-            lto1.setText(Integer.toString(nah-no));
+            int no = Integer.parseInt(tb1.getValueAt(row, 4).toString());
+            int b = nah-no;
+            String ado = Integer.toString(b);
+            lto1.setText(ado);
         }
     }//GEN-LAST:event_tb1MouseClicked
 
