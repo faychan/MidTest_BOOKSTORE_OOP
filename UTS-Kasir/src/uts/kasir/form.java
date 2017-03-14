@@ -425,6 +425,8 @@ public class form extends javax.swing.JFrame {
         if(ah>=100000){
             int an = ah*disc/100;
             lto1.setText(Integer.toString(an));
+        } else {
+            JOptionPane.showMessageDialog(this, "Hanya berlaku jika pembelian diatas Rp100.000,-", "Error", JOptionPane.WARNING_MESSAGE);           
         }
     }//GEN-LAST:event_b6ActionPerformed
 
@@ -439,7 +441,14 @@ public class form extends javax.swing.JFrame {
     }//GEN-LAST:event_b7ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        // TODO add your handling code here:
+        MessageFormat header = new MessageFormat("Telkom Vocational Highschool Students Identity");
+        MessageFormat footer = new MessageFormat("Page {0, number, integer}     ");
+        
+        try {
+            tb1.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, null,true);
+        } catch (java.awt.print.PrinterException e){
+            System.err.format("Cannot print %s%n", e.getMessage());
+        }
     }//GEN-LAST:event_b8ActionPerformed
 
     /**

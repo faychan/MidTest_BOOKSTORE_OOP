@@ -5,13 +5,17 @@
  */
 package uts.kasir;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -23,6 +27,7 @@ public class loginchu extends javax.swing.JFrame {
      */
     public loginchu() {
         initComponents();
+        setDate(); setTime();
     }
 
     /**
@@ -34,18 +39,53 @@ public class loginchu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        b2 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         tf1 = new javax.swing.JTextField();
         tf2 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        b2 = new javax.swing.JButton();
-        b3 = new javax.swing.JButton();
-        b1 = new javax.swing.JButton();
+        ldate = new javax.swing.JLabel();
+        ltime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel2.setLayout(null);
+
+        b2.setFont(new java.awt.Font("Tekton Pro Cond", 0, 18)); // NOI18N
+        b2.setText("SIGNUP");
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(b2);
+        b2.setBounds(30, 240, 100, 40);
+
+        b3.setFont(new java.awt.Font("Tekton Pro Cond", 0, 18)); // NOI18N
+        b3.setText("EXIT");
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(b3);
+        b3.setBounds(150, 240, 90, 40);
+
+        b1.setFont(new java.awt.Font("Tekton Pro Cond", 0, 18)); // NOI18N
+        b1.setText("LOGIN");
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(b1);
+        b1.setBounds(260, 240, 100, 40);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 153));
         jPanel1.setLayout(null);
@@ -64,46 +104,23 @@ public class loginchu extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(110, 80, 140, 30);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 340, 160);
+        jPanel2.add(jPanel1);
+        jPanel1.setBounds(30, 60, 340, 160);
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 153));
-        jPanel2.setLayout(null);
+        ldate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        ldate.setText("Date:");
+        jPanel2.add(ldate);
+        ldate.setBounds(30, 20, 90, 30);
 
-        b2.setFont(new java.awt.Font("Tekton Pro Cond", 0, 18)); // NOI18N
-        b2.setText("SIGNUP");
-        b2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(b2);
-        b2.setBounds(20, 200, 100, 40);
-
-        b3.setFont(new java.awt.Font("Tekton Pro Cond", 0, 18)); // NOI18N
-        b3.setText("EXIT");
-        b3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(b3);
-        b3.setBounds(140, 200, 90, 40);
-
-        b1.setFont(new java.awt.Font("Tekton Pro Cond", 0, 18)); // NOI18N
-        b1.setText("LOGIN");
-        b1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(b1);
-        b1.setBounds(250, 200, 100, 40);
+        ltime.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        ltime.setText("Time:");
+        jPanel2.add(ltime);
+        ltime.setBounds(220, 20, 90, 30);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 400, 270);
+        jPanel2.setBounds(0, 0, 420, 310);
 
-        setSize(new java.awt.Dimension(412, 304));
+        setSize(new java.awt.Dimension(420, 347));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,7 +210,46 @@ public class loginchu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel ldate;
+    private javax.swing.JLabel ltime;
     private javax.swing.JTextField tf1;
     private javax.swing.JPasswordField tf2;
     // End of variables declaration//GEN-END:variables
+public void setDate(){
+    java.util.Date now = new java.util.Date();
+    java.text.SimpleDateFormat kal = new java.text.SimpleDateFormat("dd/MM/yyyy");
+    ldate.setText(kal.format(now));
+    }
+
+public void setTime(){
+    ActionListener taskPerformer = new ActionListener(){
+        public void actionPerformed(ActionEvent evt){
+                String nolh = "";
+                String nolm = "";
+                String nols = "";
+                
+                
+                Date dt = new Date();
+                int vh = dt.getHours();
+                int vm = dt.getMinutes();
+                int vs = dt.getSeconds();
+                
+                if (vh<=9){
+                    nolh = "0";
+                } if (vm <= 9) {
+                    nolm = "0";
+                } if (vs <= 9){
+                    nols = "0";
+                }
+               
+                
+                String h = nolh + Integer.toString(vh);
+                String m = nolm + Integer.toString(vm);
+                String s = nols + Integer.toString(vs);
+                ltime.setText(h+":"+m+":"+s);
+            }
+        };
+    new Timer(100, taskPerformer).start();
+}
+
 }
