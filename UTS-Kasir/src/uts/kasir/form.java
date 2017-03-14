@@ -27,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Faychan
  */
 public class form extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form formsis
      */
@@ -51,7 +51,7 @@ public class form extends javax.swing.JFrame {
         ldate = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lab1 = new javax.swing.JLabel();
         tf1 = new javax.swing.JTextField();
         tf3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -78,6 +78,7 @@ public class form extends javax.swing.JFrame {
         lto = new javax.swing.JLabel();
         lto1 = new javax.swing.JLabel();
         b7 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -101,17 +102,17 @@ public class form extends javax.swing.JFrame {
         jLabel10.setBounds(20, 20, 560, 50);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 0, 860, 90);
+        jPanel1.setBounds(10, 10, 860, 90);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setToolTipText("ah");
         jPanel2.setName(""); // NOI18N
         jPanel2.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tekton Pro Cond", 1, 14)); // NOI18N
-        jLabel1.setText("Cashier 1");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(10, 0, 160, 40);
+        lab1.setFont(new java.awt.Font("Tekton Pro Cond", 1, 14)); // NOI18N
+        lab1.setText("Hello, Admin");
+        jPanel2.add(lab1);
+        lab1.setBounds(10, 0, 160, 40);
         jPanel2.add(tf1);
         tf1.setBounds(10, 70, 170, 29);
         jPanel2.add(tf3);
@@ -154,7 +155,7 @@ public class form extends javax.swing.JFrame {
         jLabel5.setBounds(10, 220, 170, 30);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(10, 100, 220, 360);
+        jPanel2.setBounds(10, 110, 220, 360);
         jPanel2.getAccessibleContext().setAccessibleName("");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -236,7 +237,7 @@ public class form extends javax.swing.JFrame {
         b8.setBounds(10, 350, 120, 40);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(720, 100, 150, 410);
+        jPanel3.setBounds(720, 110, 150, 410);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(null);
@@ -299,7 +300,7 @@ public class form extends javax.swing.JFrame {
         jPanel5.setBounds(10, 10, 440, 90);
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(250, 100, 460, 360);
+        jPanel4.setBounds(250, 110, 460, 360);
 
         b7.setFont(new java.awt.Font("Engravers MT", 0, 18)); // NOI18N
         b7.setText("EXIT TRANSACTION");
@@ -309,9 +310,13 @@ public class form extends javax.swing.JFrame {
             }
         });
         getContentPane().add(b7);
-        b7.setBounds(0, 470, 710, 40);
+        b7.setBounds(10, 480, 700, 40);
 
-        setSize(new java.awt.Dimension(896, 555));
+        jPanel6.setBackground(new java.awt.Color(255, 153, 0));
+        getContentPane().add(jPanel6);
+        jPanel6.setBounds(-10, -10, 900, 560);
+
+        setSize(new java.awt.Dimension(905, 581));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -483,7 +488,6 @@ public class form extends javax.swing.JFrame {
     private javax.swing.JButton bre;
     private javax.swing.JButton bsa;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -496,8 +500,10 @@ public class form extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lab1;
     private javax.swing.JLabel ldate;
     private javax.swing.JLabel ltime;
     private javax.swing.JLabel lto;
