@@ -4,6 +4,10 @@
 - Created for Middle Test in OOP Lesson which is creating App for Book Store
 <br>
 
+### Project Flow
+- Sebelum memasuki aplikasi diperlukan melakukan Admin Login. Ada tiga button yaitu Sign Up, Exit, dan Password. Exit untuk keluar dari login. SignUp  untuk mendaftar lalu memasukkan user baru yang telah dibuat ke database. Login untuk memverikasi dari database di localhost. Apabila data yang dimasukkan sesuai dengan yang ada di database maka akan di muatkan form untuk transaksi yang akan dilakukan. Terdapat fitur Refresh, Clear, Save, Edit, Delete, Print, dan Promo. Fitur Refresh untuk menyegarkan data dalam tabel dari database apabila terjadi deadlock, freeze, etc. Clear untuk membersihkan field form dalam transaksi. Save untuk menambah barang dalam transaksi pembelian. Edit untuk mengubah data yang ada dalam tabel dan menggantinya di tabel serta ke database. Delete untuk menghapus data barang dari transaksi tabel dan databasenya. Print untuk mencetak data dalam tabel. Total dari harga semua barang yang dibeli secara dinamis akan bertambah dengan button save yang ditekan. Saat baris tabel ditekan maka total dari harga semua yang dibeli akan berkurang sampai admin melakukan eksekusi dengan button selanjutnya (Edit atau Delete). Selebihnya dapat dilihat dalam Screenshoot dibawah ini. Aplikasi ini hanya untuk merecord sampai dicetak oleh admin atau keluar dari transaksi tersebut, setelah itu database akan langsung menghapus isi record dari database.  
+<br>
+
 ### Application Screenshot
 - Admin Login <br>
 <img src="https://github.com/faychan/MidTest_BOOKSTORE_OOP/blob/master/UTS-Kasir/src/img/Capture1.PNG" width="75%" height="25%"> <br>
